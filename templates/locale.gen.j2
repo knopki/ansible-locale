@@ -1,0 +1,31 @@
+# {{ ansible_managed }}
+
+{% if locale_all is not defined %}{% set locale_all = None %}{% endif %}
+{% if locale_numeric is not defined %}{% set locale_numeric = None %}{% endif %}
+{% if locale_time is not defined %}{% set locale_time = None %}{% endif %}
+{% if locale_monetary is not defined %}{% set locale_monetary = None %}{% endif %}
+{% if locale_paper is not defined %}{% set locale_paper = None %}{% endif %}
+{% if locale_identification is not defined %}{% set locale_identification = None %}{% endif %}
+{% if locale_name is not defined %}{% set locale_name = None %}{% endif %}
+{% if locale_address is not defined %}{% set locale_address = None %}{% endif %}
+{% if locale_telephone is not defined %}{% set locale_telephone = None %}{% endif %}
+{% if locale_measurement is not defined %}{% set locale_measurement = None %}{% endif %}
+
+{% set locales = [
+    "en_US.UTF-8",
+    locale_lang,
+    locale_all,
+    locale_numeric,
+    locale_time,
+    locale_monetary,
+    locale_paper,
+    locale_identification,
+    locale_name,
+    locale_address,
+    locale_telephone,
+    locale_measurement
+] %}
+
+{% for l in locales|unique %}{% if l != None %}
+{{ l }} {{ l.split(".")[1] }}
+{% endif %}{% endfor %}
