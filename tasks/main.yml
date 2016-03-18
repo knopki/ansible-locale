@@ -5,7 +5,6 @@
   when: ansible_os_family == "Debian"
 
 - name: set locale
+  become: yes
   template: src=default.j2 dest=/etc/default/locale
   when: ansible_os_family == "Debian"
-  with_items:
-    - "{{locale_lang}}"
