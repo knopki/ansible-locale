@@ -1,3 +1,8 @@
+Deprecation warning
+=======
+
+Unmaintained project. Please, use good alternative: [tersmitten.locales](https://galaxy.ansible.com/tersmitten/locales/)
+
 locale
 ========
 
